@@ -22,7 +22,7 @@ const tableauFilm = data ?? [];
 </script>
 
 <template>
-  <main class="bg-gray-700 text-white min-h-screen">Cette page est index.vue de Film 
+  <main class="bg-gray-700 text-white min-h-screen">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
     <RouterLink  v-for="film in tableauFilm" :to="{name:'/films/[id]', params: {id:film.id_film}}">
       <CardFilm v-bind="film"/>

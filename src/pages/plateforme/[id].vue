@@ -2,24 +2,21 @@
 import AfficheFilm from '@/components/AfficheFilm.vue';
 import { supabase } from "@/supabase";
 import { useRoute } from 'vue-router/auto';
+import AffichePlateforme from '@/components/AffichePlateforme.vue';
 const route = useRoute('/films/[id]');
 console.log("route.params.id", route.params.id);
 
 
 console.log("supabase :", supabase); // pour vérifier et "garder" supabase dans le code
 let { data: data, error } = await supabase
-    .from('films')
-    .select(`
-      *,
-      celebrite(*),
-      genre(*),
-      saga(*),
-      plateforme(*)
+    .from('plateforme')
+    .select(`*,
+        films(*)
     `)
-    .eq('id_film', route.params.id)
+    .eq('id_plateforme', route.params.id)
     .single();
 
-console.log("data films", data);
+console.log("data plateforme", data);
 
     if (error) {
       console.error("erreur requête films avec celebrite", error);
@@ -29,9 +26,8 @@ console.log("data films", data);
 </script>
 
 <template>
-  <main class="bg-slate-700">
-  <div class="">  
-    <AfficheFilm v-bind="data" />
+  <main>Cette page est index.vue de plateforme </main>
+  <div class="margin-auto justify-center">  
+    <AffichePlateforme v-bind="data" />
   </div>
-  </main>
 </template>

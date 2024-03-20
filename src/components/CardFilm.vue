@@ -2,7 +2,7 @@
 import { defineProps } from 'vue'
 import type { Database, Tables } from '@/supabaseTypes';
 // Utilisation de defineProps pour définir les props attendus par le composant
-defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrite:Tables<'celebrite'>[]} & {genre:Tables<'genre'>[]}  & {saga:Tables<'saga'>[]}>()
+defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrite:Tables<'celebrite'>[]} & {genre:Tables<'genre'>[]}  & {saga:Tables<'saga'>[]}  & {saga:Tables<'saga'>[]}>()
 </script>
 
 <template>

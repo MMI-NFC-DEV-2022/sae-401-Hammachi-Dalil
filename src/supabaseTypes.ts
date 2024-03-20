@@ -96,6 +96,36 @@ export type Database = {
           },
         ]
       }
+      filmplateform: {
+        Row: {
+          film: number
+          plateforme: number
+        }
+        Insert: {
+          film: number
+          plateforme: number
+        }
+        Update: {
+          film?: number
+          plateforme?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_filmplateform_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "films"
+            referencedColumns: ["id_film"]
+          },
+          {
+            foreignKeyName: "public_filmplateform_plateforme_fkey"
+            columns: ["plateforme"]
+            isOneToOne: false
+            referencedRelation: "plateforme"
+            referencedColumns: ["id_plateforme"]
+          },
+        ]
+      }
       films: {
         Row: {
           affiche: string | null
@@ -173,17 +203,17 @@ export type Database = {
       }
       plateforme: {
         Row: {
-          id_support: number
+          id_plateforme: number
           image: string | null
           libelle: string | null
         }
         Insert: {
-          id_support: number
+          id_plateforme: number
           image?: string | null
           libelle?: string | null
         }
         Update: {
-          id_support?: number
+          id_plateforme?: number
           image?: string | null
           libelle?: string | null
         }
