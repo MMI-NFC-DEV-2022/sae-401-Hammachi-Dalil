@@ -28,7 +28,7 @@ console.log("data films", data);
 </script>
 
 <template>
-  <main class="">Cette page est index.vue de Film 
+  <main class="bg-slate-700">
   <div class="">  
     <AfficheFilm v-bind="data" />
   </div>

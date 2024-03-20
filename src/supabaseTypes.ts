@@ -100,6 +100,7 @@ export type Database = {
         Row: {
           affiche: string | null
           bande_annonce: string | null
+          banniere: string | null
           date_de_sortie: string | null
           id_film: number
           synopsis: string | null
@@ -108,6 +109,7 @@ export type Database = {
         Insert: {
           affiche?: string | null
           bande_annonce?: string | null
+          banniere?: string | null
           date_de_sortie?: string | null
           id_film: number
           synopsis?: string | null
@@ -116,6 +118,7 @@ export type Database = {
         Update: {
           affiche?: string | null
           bande_annonce?: string | null
+          banniere?: string | null
           date_de_sortie?: string | null
           id_film?: number
           synopsis?: string | null
@@ -171,14 +174,17 @@ export type Database = {
       plateforme: {
         Row: {
           id_support: number
+          image: string | null
           libelle: string | null
         }
         Insert: {
           id_support: number
+          image?: string | null
           libelle?: string | null
         }
         Update: {
           id_support?: number
+          image?: string | null
           libelle?: string | null
         }
         Relationships: []
@@ -186,16 +192,19 @@ export type Database = {
       saga: {
         Row: {
           id_saga: number
+          image: string | null
           libelle: string | null
           nb_films: number | null
         }
         Insert: {
           id_saga: number
+          image?: string | null
           libelle?: string | null
           nb_films?: number | null
         }
         Update: {
           id_saga?: number
+          image?: string | null
           libelle?: string | null
           nb_films?: number | null
         }
