@@ -2,7 +2,7 @@
 import { ref } from "@vue/reactivity";
 import AfficheFilm from "@/components/AfficheFilm.vue";
 import { FormKit } from "@formkit/vue";
-import { supabase } from "/supabase";
+import { supabase } from "@/supabase";
 import { useRouter, useRoute } from "vue-router/auto";
 console.log("supabase :", supabase); // pour vérifier et "garder" supabase dans le code
 
@@ -16,7 +16,7 @@ async function upsertFilm(dataForm: any, node: { setErrors: (arg0: any[]) => voi
     if (error) node.setErrors([error.message])
     else {
         console.log("data :",data);
-        router.push({name:"/films/edit/[[id]]", params:{id: data[0].id}});
+        router.push({name:"/films/edit/[[id]]", params:{id: data[0].id_film}});
     }
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AfficheFilm from '@/components/AfficheFilm.vue';
-import { supabase } from "/supabase.ts";
+import { supabase } from "@/supabase";
 import { useRoute } from 'vue-router/auto';
 import AfficheSaga from '@/components/AfficheSaga.vue';
 const route = useRoute('/films/[id]');

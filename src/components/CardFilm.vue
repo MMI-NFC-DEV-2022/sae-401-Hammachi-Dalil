@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import type { Database, Tables } from '@/supabaseTypes';
-// defineProps <Tables<'films'> & {celebrite:Tables<'celebrite'>}>()
+// Utilisation de defineProps pour définir les props attendus par le composant
 defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrite:Tables<'celebrite'>[]} & {genre:Tables<'genre'>[]}  & {saga:Tables<'saga'>[]}>()
-
-
 </script>
 
 <template>
-    <ul class="m-4">
-        <img :src="affiche ?? undefined" class="w-72 sm:w-10"/>
-        <li class="m-4">Titre : {{ titre }}</li>
-    </ul>
-</template>@/supabaseTypes
+    <div class="m-4 p-6 bg-gray-300 rounded-xl flex flex-wrap shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out">
+        <img :src="affiche ?? undefined" class="w-60 h-auto rounded-t-xl mx-auto"/>
+        <div class="text-slate-700 p-4">
+            <h3 class="text-xl font-semibold mb-2">{{ titre }}</h3>
+            <p class="text-slate-700  opacity-75">{{ synopsis }}</p>
+        </div>
+        <!-- Vous pouvez ajouter ici d'autres éléments comme la liste des célébrités, genres, et sagas si nécessaire -->
+    </div>
+</template>

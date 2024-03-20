@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AfficheFilm from '@/components/AfficheFilm.vue';
-import { TypesFilm } from '@/type';
-import { supabase } from "/supabase.ts";
+import { supabase } from "@/supabase";
 import { useRoute } from 'vue-router/auto';
 const route = useRoute('/films/[id]');
 console.log("route.params.id", route.params.id);
@@ -29,8 +28,9 @@ console.log("data films", data);
 </script>
 
 <template>
-  <main>Cette page est index.vue de Film </main>
-  <div class="margin-auto justify-center">  
+  <main class="">Cette page est index.vue de Film 
+  <div class="">  
     <AfficheFilm v-bind="data" />
   </div>
+  </main>
 </template>
