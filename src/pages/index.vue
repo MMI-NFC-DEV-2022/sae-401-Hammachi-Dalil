@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import FormKit from '@/components/FormKit.vue';
+import { supabase } from '/supabase.ts'
+console.log("supabase :", supabase); // pour vérifier et "garder" supabase dans le code
 </script>
 
 <template>
