@@ -40,7 +40,7 @@ if (route.params.id) {
             </h2>
             <AfficheFilm v-bind="films" />
         </div>
-        <div class="p-2">
+        <div class="p-2 flex justify-center">
             <FormKit @submit="upsertFilm" type="form" v-model="films" :config="{
                 classes: {
                     input: 'p-1 rounded border-gray-300 shadow-sm border',
