@@ -133,6 +133,7 @@ export type Database = {
           banniere: string | null
           date_de_sortie: string | null
           id_film: number
+          populaire: boolean | null
           synopsis: string | null
           titre: string | null
         }
@@ -142,6 +143,7 @@ export type Database = {
           banniere?: string | null
           date_de_sortie?: string | null
           id_film: number
+          populaire?: boolean | null
           synopsis?: string | null
           titre?: string | null
         }
@@ -151,6 +153,7 @@ export type Database = {
           banniere?: string | null
           date_de_sortie?: string | null
           id_film?: number
+          populaire?: boolean | null
           synopsis?: string | null
           titre?: string | null
         }

@@ -26,7 +26,6 @@ console.log("data saga", data);
 </script>
 
 <template>
-  <main>Cette page est index.vue de Film </main>
   <div class="margin-auto justify-center">  
     <AfficheSaga v-bind="data" />
   </div>
