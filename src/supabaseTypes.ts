@@ -192,14 +192,17 @@ export type Database = {
       filmsupport: {
         Row: {
           film: number
+          prix: number | null
           support: number
         }
         Insert: {
           film: number
+          prix?: number | null
           support: number
         }
         Update: {
           film?: number
+          prix?: number | null
           support?: number
         }
         Relationships: [
