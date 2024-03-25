@@ -10,7 +10,7 @@ defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'
 <template>
     <div class="bg-gray-800 ">
         <div class="flex justify-center">
-            <img :src="banniere ?? undefined" alt="Bannière du film" class="rounded-lg shadow-xl max-h-96" />
+            <img :src="banniere ?? undefined" alt="Bannière du film" class="text-white rounded-lg shadow-xl max-h-96" />
         </div>
         <h1 class="mt-4 mb-4 flex justify-center text-4xl font-bold text-white">{{ titre }}</h1>
         <div class="flex flex-wrap justify-around items-start px-4">
