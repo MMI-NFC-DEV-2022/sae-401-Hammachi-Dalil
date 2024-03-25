@@ -16,13 +16,13 @@ defineProps<Database["public"]["Tables"]["saga"]["Row"] & { films: Tables<'films
         <!-- Grille pour les films -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div v-for="unFilm in films" :key="unFilm.id_film"
-                class="bg-white shadow-md border border-gray-200 rounded-lg overflow-hidden hover:scale-105 transition-transform ease-in-out">
+                class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform ease-in-out">
                 <RouterLink :to="{ name: '/films/[id]', params: { id: unFilm.id_film } }"
                     class="hover:text-blue-500 transition duration-300 ease-in-out block">
                     <img :src="unFilm?.affiche ?? undefined" alt="Affiche du film"
-                        class="w-72 h-auto sm:w-96 mx-auto mt-4 rounded-lg" />
+                        class="" />
                     <div class="p-4">
-                        <p class="text-md font-medium text-center">Nom : {{ unFilm?.titre }}</p>
+                        <p class="text-2xl font-medium text-center">{{ unFilm?.titre }}</p>
                     </div>
                 </RouterLink>
             </div>
