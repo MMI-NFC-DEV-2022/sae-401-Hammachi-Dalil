@@ -26,7 +26,6 @@ console.log("data plateforme", data);
 </script>
 
 <template>
-  <main>Cette page est index.vue de plateforme </main>
   <div class="margin-auto justify-center">  
     <AffichePlateforme v-bind="data" />
   </div>
