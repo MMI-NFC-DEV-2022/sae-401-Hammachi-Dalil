@@ -14,7 +14,7 @@ defineProps<Database["public"]["Tables"]["plateforme"]["Row"] & { films: Tables<
             <p class="text-xl mt-4 mb-2 text-center">Films disponibles sur {{ libelle }} :</p>
             <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <li v-for="unFilm in films" :key="unFilm.id_film"
-                    class="flex flex-col items-center bg-gray-100 p-4 rounded-lg hover:shadow-md transition-shadow duration-300 ease-in-out">
+                    class="flex flex-col items-center bg-gray-100 p-4 rounded-lg hover:shadow-md hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out">
                     <RouterLink :to="{ name: '/films/[id]', params: { id: unFilm.id_film } }" class="text-center">
                         <img :src="unFilm?.affiche ?? undefined" alt="Affiche du film"
                             class="w-36 h-56 object-cover rounded-md mb-2" />
