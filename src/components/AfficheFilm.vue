@@ -8,7 +8,7 @@ defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'
 </script>
 
 <template>
-    <div class="bg-gray-800 min-h-screen">
+    <div class="bg-gray-800 ">
         <div class="flex justify-center">
             <img :src="banniere ?? undefined" alt="Bannière du film" class="rounded-lg shadow-xl max-h-96" />
         </div>
@@ -58,11 +58,19 @@ defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'
                 </li>
             </ul>
             <ul class="flex justify-center flex-wrap">
-                <li v-for="leSupport in filmsupport"
-                    class="text-white mx-16">
-                    {{ leSupport.prix }} €
-                </li>
+                <div v-for="leSupport in filmsupport">
+                    <li class="text-white mx-10">
+                        {{ leSupport.prix }} €
+                    </li>
+                    <li class="text-white">
+                       <a :href="leSupport.lien_externe ?? ''" target="_blank" class="underline hover:text-blue-600">Acheter</a>
+                    </li>
+                </div>
             </ul>
+
+
+
+
 
         </div>
     </div>

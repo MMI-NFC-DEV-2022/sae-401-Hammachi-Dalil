@@ -12,6 +12,8 @@ const films = ref ({});
 const route = useRoute('/films/edit/[[id]]');
 
 async function upsertFilm(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
+    console.log("dataForm :",dataForm);
+    
     const { data, error } = await supabase.from("films").upsert(dataForm).select("id_film");
     if (error) node.setErrors([error.message])
     else {
@@ -39,19 +41,19 @@ if (route.params.id) {
             <AfficheFilm v-bind="films" />
         </div>
         <div class="p-2">
-            <FormKit @submit="upsertFilm" type="form" v-model="films"
-            :config="{
+            <FormKit @submit="upsertFilm" type="form" v-model="films" :config="{
                 classes: {
                     input: 'p-1 rounded border-gray-300 shadow-sm border',
                     label: 'text-gray-600 italic',
                     outer: 'py-2',
                     },
                 }">
-                <FormKit name="id_film" type="number" />
                 <FormKit name="titre" label="Titre du film" />
                 <FormKit name="synopsis" label="Synopsis du film" />
                 <FormKit name="bande_annonce" label="bande annonce" />
                 <FormKit name="affiche" label="Images du film" />
+                <FormKit name="banniere" label="banniere du film" />
+                <FormKit name="date_de_sortie" type="date" label="Date de sortie" />
             </FormKit>
         </div>
     </div>

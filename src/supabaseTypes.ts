@@ -192,16 +192,19 @@ export type Database = {
       filmsupport: {
         Row: {
           film: number
+          lien_externe: string | null
           prix: number | null
           support: number
         }
         Insert: {
           film: number
+          lien_externe?: string | null
           prix?: number | null
           support: number
         }
         Update: {
           film?: number
+          lien_externe?: string | null
           prix?: number | null
           support?: number
         }
@@ -279,14 +282,17 @@ export type Database = {
       support_physique: {
         Row: {
           id_support_physique: number
+          image: string | null
           libelle: string | null
         }
         Insert: {
           id_support_physique: number
+          image?: string | null
           libelle?: string | null
         }
         Update: {
           id_support_physique?: number
+          image?: string | null
           libelle?: string | null
         }
         Relationships: []
