@@ -186,6 +186,36 @@ export type Database = {
           },
         ]
       }
+      filmsupport: {
+        Row: {
+          film: number
+          support: number
+        }
+        Insert: {
+          film: number
+          support: number
+        }
+        Update: {
+          film?: number
+          support?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_film_support_film_fkey"
+            columns: ["film"]
+            isOneToOne: false
+            referencedRelation: "films"
+            referencedColumns: ["id_film"]
+          },
+          {
+            foreignKeyName: "public_film_support_support_fkey"
+            columns: ["support"]
+            isOneToOne: false
+            referencedRelation: "support_physique"
+            referencedColumns: ["id_support_physique"]
+          },
+        ]
+      }
       genre: {
         Row: {
           id_genre: number
@@ -242,32 +272,18 @@ export type Database = {
       }
       support_physique: {
         Row: {
-          id_film: number | null
           id_support_physique: number
           libelle: string | null
-          prix: number | null
         }
         Insert: {
-          id_film?: number | null
           id_support_physique: number
           libelle?: string | null
-          prix?: number | null
         }
         Update: {
-          id_film?: number | null
           id_support_physique?: number
           libelle?: string | null
-          prix?: number | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "support_physique_id_film_fkey"
-            columns: ["id_film"]
-            isOneToOne: false
-            referencedRelation: "films"
-            referencedColumns: ["id_film"]
-          },
-        ]
+        Relationships: []
       }
       variant: {
         Row: {

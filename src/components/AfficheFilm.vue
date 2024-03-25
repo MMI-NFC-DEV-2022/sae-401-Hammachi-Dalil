@@ -4,7 +4,7 @@ import type { Database, Tables } from '@/supabaseTypes';
 import { RouterLink, useRoute } from 'vue-router/auto';
 const route = useRoute('/celebrite/[id]');
 
-defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'celebrite'>[] } & { genre: Tables<'genre'>[] } & { saga: Tables<'saga'>[] } & { plateforme: Tables<'plateforme'>[] }>();
+defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'celebrite'>[] } & { genre: Tables<'genre'>[] } & { saga: Tables<'saga'>[] } & { plateforme: Tables<'plateforme'>[] } & { support_physique: Tables<'support_physique'>[] }>();
 </script>
 
 <template>
@@ -48,6 +48,15 @@ defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'
                         class="h-12 md:h-16 rounded-2xl hover:scale-105 transition-transform ease-in-out" />
                 </RouterLink>
             </div>
+        </div>
+        <div>
+            <p class="text-white text-center text-lg">Supports physiques :</p>
+            <ul class="flex justify-center flex-wrap">
+                <li v-for="unSupport in support_physique" :key="unSupport.id_support_physique"
+                    class="text-white m-4 hover:scale-105 transition-transform ease-in-out">
+                    {{ unSupport.libelle }}
+                </li>
+            </ul>
         </div>
     </div>
 </template>

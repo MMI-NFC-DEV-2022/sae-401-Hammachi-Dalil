@@ -14,7 +14,8 @@ let { data: data, error } = await supabase
       celebrite(*),
       genre(*),
       saga(*),
-      plateforme(*)
+      plateforme(*),
+      support_physique(*)
     `)
     .eq('id_film', route.params.id)
     .single();
