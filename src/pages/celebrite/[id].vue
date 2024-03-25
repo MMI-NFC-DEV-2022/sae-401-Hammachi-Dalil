@@ -26,7 +26,6 @@ console.log("data films", data);
 </script>
 
 <template>
-  <main>Cette page est index.vue de Film </main>
   <div class="margin-auto justify-center">  
     <AfficheCelebrite v-bind="data" />
   </div>

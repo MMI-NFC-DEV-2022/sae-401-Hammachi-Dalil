@@ -1,25 +1,27 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import type { Database, Tables } from '@/supabaseTypes';
-// import { RouterLink } from 'vue-router/auto';
-// defineProps <Tables<'films'> & {celebrite:Tables<'celebrite'>}>()
-defineProps <Database["public"]["Tables"]["celebrite"]["Row"]  & {films:Tables<'films'>[]}>()
-
-
+defineProps<Database["public"]["Tables"]["celebrite"]["Row"] & { films: Tables<'films'>[] }>();
 </script>
 
 <template>
-    <ul class="m-4">
-        <li class="m-4">Titre {{ nom }}</li>
-        <li class="m-4"> {{ prenom }}</li>
-        <img :src="image ?? undefined" class="w-72 sm:w-10"/>
+    <div class="max-w-4xl mx-auto p-4">
+        <div class="flex flex-col items-center mb-8">
+            <h1 class="text-2xl font-bold mb-2">{{ prenom }} {{ nom }}</h1>
+            <img :src="image ?? undefined" alt="Image de l'acteur"
+                class="w-48 h-auto rounded-2xl shadow-lg border-gray-200" />
+        </div>
 
-<p> Films dans lesquels {{ prenom }} {{ nom }} a joué</p>
-        <li class="m-4" v-for="unFilm in films">
-                <RouterLink :to="{name:'/films/[id]', params: {id:unFilm.id_film}}"> 
-                   <p> Nom : {{ unFilm?.titre }} </p> 
-                       <img :src="unFilm?.affiche ?? undefined" class="w-72 sm:w-10"/>
-                </RouterLink> 
+        <p class="text-lg font-semibold mb-4">Films dans lesquels {{ prenom }} {{ nom }} a joué :</p>
+        <ul>
+            <li v-for="unFilm in films" :key="unFilm.id_film" class="mb-6">
+                <RouterLink :to="{ name: '/films/[id]', params: { id: unFilm.id_film } }"
+                    class="flex items-center gap-4 hover:text-blue-500 transition duration-300 ease-in-out">
+                    <img :src="unFilm?.affiche ?? undefined" alt="Affiche du film"
+                        class="w-32 h-auto rounded-lg shadow-md border border-gray-200" />
+                    <p class="text-md font-medium">{{ unFilm?.titre }}</p>
+                </RouterLink>
             </li>
-    </ul>
+        </ul>
+    </div>
 </template>

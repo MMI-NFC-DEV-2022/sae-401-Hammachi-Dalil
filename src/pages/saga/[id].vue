@@ -19,7 +19,7 @@ let { data: data, error } = await supabase
 console.log("data saga", data);
 
     if (error) {
-      console.error("erreur requête films avec celebrite", error);
+      console.error("erreur requête films avec saga", error);
     }
 
 
