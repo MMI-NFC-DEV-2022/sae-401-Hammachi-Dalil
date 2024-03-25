@@ -25,7 +25,16 @@ defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'
                             {{ uneSaga.libelle }}
                         </RouterLink>
                     </p>
+
                 </div>
+                <div class="flex text-white text-lg px-4">
+                    <p>Genre : </p>
+                    <p v-for="(filmgenre, index) in genre" :key="index" class="pl-2">
+                        {{ filmgenre.libelle }}
+                        <span v-if="index < genre.length - 1"> / </span>
+                    </p>
+                </div>
+
             </div>
             <div class="w-full md:w-1/2 lg:w-2/5 xl:w-1/3 mt-8 md:mt-0">
                 <p class="text-white ml-4">Acteurs ayant joué dans {{ titre }} :</p>
@@ -63,7 +72,8 @@ defineProps<Database["public"]["Tables"]["films"]["Row"] & { celebrite: Tables<'
                         {{ leSupport.prix }} €
                     </li>
                     <li class="text-white">
-                       <a :href="leSupport.lien_externe ?? ''" target="_blank" class="underline hover:text-blue-600">Acheter</a>
+                        <a :href="leSupport.lien_externe ?? ''" target="_blank"
+                            class="underline hover:text-blue-600">Acheter</a>
                     </li>
                 </div>
             </ul>
